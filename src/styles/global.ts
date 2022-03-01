@@ -15,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
   *{
     margin: 0;
     padding:0;
-    box-sizing;
+    box-sizing: border-box;
   }
 
   body{
@@ -28,7 +28,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h1, h2, h3, h4, h5, h6, strong{
-    font-weight: 600;
+    font-weight: 500;
   }
 
 
@@ -43,7 +43,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   button{
-    pointer: cursor;
+    cursor: pointer;
   }
 
   [disable]{
