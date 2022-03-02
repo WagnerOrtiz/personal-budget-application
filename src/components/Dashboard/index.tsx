@@ -1,5 +1,6 @@
 import { Container, Summary } from "./styles";
 import { SummaryCard } from "../SummaryCard"
+import { Table } from '../Table'
 
 
 export const Dashboard = () => (
@@ -9,5 +10,6 @@ export const Dashboard = () => (
       <SummaryCard title="Saídas" value="4"/>
       <SummaryCard title="Total" value="4" />
     </Summary>
+    <Table />
   </Container>
 )

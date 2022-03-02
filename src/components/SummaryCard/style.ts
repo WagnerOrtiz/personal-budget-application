@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  margin: 0 2rem;
   padding: 1rem 2rem;
   border-radius: 0.2rem;
   background-color: var(--shape);
