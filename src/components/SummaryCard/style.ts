@@ -5,6 +5,11 @@ export const Container = styled.div`
   border-radius: 0.2rem;
   background-color: var(--shape);
   color: var(--title);
+
+  &:last-child{
+    background-color: var(--green);
+    color: var(--shape);
+  }
 `
 
 export const Header = styled.header`

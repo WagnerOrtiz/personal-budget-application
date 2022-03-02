@@ -5,14 +5,14 @@ interface TransactionItemProps{
   value: string,
   category: string,
   date: string,
-  move: string,
+  type: string,
 }
 
 
-export const TransactionItem = ({item, value, category, date, move}:TransactionItemProps) => (
+export const TransactionItem = ({item, value, category, date, type}:TransactionItemProps) => (
   <Container>
     <Item>{item}</Item>
-    <Item className={move}>{value}</Item>
+    <Item className={type}>{value}</Item>
     <Item>{category}</Item>
     <Item>{date}</Item>
   </Container>
