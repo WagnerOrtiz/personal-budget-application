@@ -50,6 +50,12 @@ export const Container = styled.form`
     height: 3rem;
     margin-top: 1rem;
   }
+`
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
 
   button[class="income"]{
     height: 3rem;
@@ -67,13 +73,5 @@ export const Container = styled.form`
   }
 `
 
-export const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-`
-
-export const CloseContainer = styled.button`
-`
 export const Icon = styled.img`
 `

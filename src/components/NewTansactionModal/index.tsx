@@ -2,7 +2,7 @@ import Modal from 'react-modal'
 import income from '../../assets/entradas.svg'
 import close from '../../assets/fechar.svg'
 import spendings from '../../assets/saidas.svg'
-import { ButtonContainer, CloseContainer, Container, Icon } from './style'
+import { ButtonContainer, Container, Icon } from './style'
 
 interface NewTransactionModalProps{
   isOpen: boolean,
@@ -17,9 +17,9 @@ export const NewTransactionModal = ({isOpen,onRequestClose}:NewTransactionModalP
     overlayClassName="overlay-modal"
     className="content-modal"
   >
-    <CloseContainer className='close-button'>
+    <button className='close-button' onClick={onRequestClose}>
       <Icon src={close} alt="Entradas" />
-    </CloseContainer>
+    </button>
     
     <Container>
       <h2>Cadastrar Transação</h2>
@@ -30,11 +30,11 @@ export const NewTransactionModal = ({isOpen,onRequestClose}:NewTransactionModalP
       <ButtonContainer>
         <button type='button' className='income'>
           Entrada
-          <Icon src={income} alt="Entradas" />
+          <Icon src={income} alt="Entradas" style={{marginLeft: "1rem"}}/>
         </button>
-        <button type='button' className='spending'>
+        <button type='button' className='spending' >
           Saída
-          <Icon src={spendings} alt="Entradas" />
+          <Icon src={spendings} alt="Entradas" style={{marginLeft: "1rem"}} />
         </button>
       </ButtonContainer>
 
