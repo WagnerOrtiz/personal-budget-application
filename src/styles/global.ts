@@ -80,5 +80,10 @@ export const GlobalStyle = createGlobalStyle`
     position: absolute;
     top:2rem;
     right: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
   }
 `

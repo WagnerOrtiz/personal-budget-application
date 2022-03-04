@@ -67,7 +67,6 @@ export const Container = styled.form`
   }
 `
 
-
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -76,8 +75,5 @@ export const ButtonContainer = styled.div`
 
 export const CloseContainer = styled.button`
 `
-
 export const Icon = styled.img`
-  margin: 0 1rem; 
-  cursor: pointer;
 `
