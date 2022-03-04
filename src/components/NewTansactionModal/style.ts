@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.form`
   display: flex;
@@ -19,34 +19,28 @@ export const Container = styled.form`
     &+input{
       margin-top: 0;
     }
-
     &:focus{
       outline:  1px solid lightgray;
     }
-
     &::placeholder{
     color: var(--title);
     }
   }
-
 
   button{
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 2.4rem;
     color: var(--title);
-    border: 0.5px solid lightgray;
     border-radius: 0.2rem;
     &:hover{
-
     }
   }
 
   button[type="submit"]{
     background-color: var(--blue);
-    color: var(--shape);
+    color: var(--white);
     height: 3rem;
     margin-top: 1rem;
   }
@@ -56,20 +50,27 @@ export const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
+  height: 3rem;
+`
 
-  button[class="income"]{
-    height: 3rem;
-    margin-right: 1rem;
-    &:active{
-      background-color: black;
+interface RadioButtonProps{
+  selected:boolean,
+  category: string,
+}
+export const RadioButton = styled.button<RadioButtonProps>`
+  background-color: var(--white);
+  border: ${(props) => { 
+    if(props.selected && props.category ==='income'){ 
+      return('0.5px solid #00FF7F')
     }
-  }
-
-  button[class="spending"]{
-    height: 3rem;
-    &:active{
-      background-color: black;
+    else if(props.selected && props.category ==='spending'){ 
+      return('0.5px solid #FA8072')
+    }else{
+      return('0.5px solid lightgray');
     }
+  }};
+  &+button{
+    margin-left: 1rem;
   }
 `
 

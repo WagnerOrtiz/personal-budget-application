@@ -3,12 +3,12 @@ import styled from 'styled-components'
 export const Container = styled.div`
   padding: 1rem 2rem;
   border-radius: 0.2rem;
-  background-color: var(--shape);
+  background-color: var(--white);
   color: var(--title);
 
   &:last-child{
     background-color: var(--green);
-    color: var(--shape);
+    color: var(--white);
   }
 `
 

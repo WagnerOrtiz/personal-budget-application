@@ -7,7 +7,7 @@ export const Container = styled.tr`
 `
 
 export const Item = styled.td`
-  background-color: var(--shape);
+  background-color: var(--white);
   color: var(--title);
   padding: 1rem 2rem;
   border-radius: 0.2rem;

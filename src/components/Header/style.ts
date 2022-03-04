@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.header`
   background-color: var(--blue);
-  color: var(--shape);
+  color: var(--white);
 `
 
 export const Content = styled.div`
@@ -20,7 +20,7 @@ export const Logo = styled.div`
 
 export const Button = styled.button`
   background-color: var(--lightblue);
-  color: var(--shape);
+  color: var(--white);
   height: 3rem;
   padding: 0.2rem 2rem;
   

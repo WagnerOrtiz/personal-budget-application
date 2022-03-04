@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   :root{
-    --shape: #fff;
+    --white: #fff;
     --background: #f0f2f5;
     --text: #969CB3;
     --title: #363F5F;
@@ -68,7 +68,7 @@ export const GlobalStyle = createGlobalStyle`
   .content-modal{
     width: 100%;
     max-width: 600px;
-    background-color: var(--shape);
+    background-color: var(--white);
     padding: 3rem;
     position: relative;
     border-radius: 0.2rem;
