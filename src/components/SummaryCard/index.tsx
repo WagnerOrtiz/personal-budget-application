@@ -5,10 +5,10 @@ import total from '../../assets/total.svg'
 
 interface SummaryCardProps {
   title: string,
-  value: string,
+  amount: string,
 }
 
-export const SummaryCard = ({title, value}:SummaryCardProps) => (
+export const SummaryCard = ({title, amount}:SummaryCardProps) => (
   <Container>
     <Header>
       <Title>{title}</Title>
@@ -24,7 +24,7 @@ export const SummaryCard = ({title, value}:SummaryCardProps) => (
     </Header>
     <Content>
       <Currency>R$</Currency>
-      <Value>{value}</Value>
+      <Value>{amount}</Value>
     </Content>
   </Container>
 )

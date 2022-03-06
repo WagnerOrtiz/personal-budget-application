@@ -2,17 +2,17 @@ import { Container, Item } from './style'
 
 interface TransactionItemProps{
   item: string,
-  value: string,
+  amount: string,
   category: string,
   date: string,
   type: string,
 }
 
 
-export const TransactionItem = ({item, value, category, date, type}:TransactionItemProps) => (
+export const TransactionItem = ({item, amount, category, date, type}:TransactionItemProps) => (
   <Container>
     <Item>{item}</Item>
-    <Item className={type}>{value}</Item>
+    <Item className={type}>{amount}</Item>
     <Item>{category}</Item>
     <Item>{date}</Item>
   </Container>

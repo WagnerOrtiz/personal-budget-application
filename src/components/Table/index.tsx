@@ -16,7 +16,7 @@ export const Table = () => {
       <thead>
         <TableHeader 
           item="Item"
-          value="Value"
+          value="Amount"
           category="Category"
           date="Date"
         />
@@ -24,28 +24,28 @@ export const Table = () => {
       <tbody>
         <TransactionItem 
           item="Desenvolvimento de website"
-          value="R$12.000,00"
+          amount="R$12.000,00"
           category="Venda"
           date="10/01/2022"
           type="income"
         />
         <TransactionItem 
           item="Hamburguer"
-          value="-R$10,00"
+          amount="-R$10,00"
           category="Compra"
           date="10/01/2022"
           type="spending"
         />
         <TransactionItem 
           item="Aluguel"
-          value="-R$1.200,00"
+          amount="-R$1.200,00"
           category="Aluguel"
           date="10/01/2022"
           type="spending"
         />
         <TransactionItem 
           item="Compra carro"
-          value="R$25.000,00"
+          amount="R$25.000,00"
           category="Venda"
           date="10/01/2022"
           type="income"
