@@ -76,3 +76,8 @@ export const RadioButton = styled.button<RadioButtonProps>`
 
 export const Icon = styled.img`
 `
+
+
+export const ErrorMessage = styled.div`
+  color: var(--red);
+`

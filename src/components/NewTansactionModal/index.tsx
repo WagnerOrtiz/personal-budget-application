@@ -3,7 +3,8 @@ import Modal from 'react-modal'
 import income from '../../assets/entradas.svg'
 import close from '../../assets/fechar.svg'
 import spendings from '../../assets/saidas.svg'
-import { ButtonContainer, Container, Icon, RadioButton } from './style'
+import { api } from '../../services/api'
+import { ButtonContainer, Container, Icon, RadioButton, ErrorMessage } from './style'
 
 interface NewTransactionModalProps{
   isOpen: boolean,
@@ -13,8 +14,9 @@ interface NewTransactionModalProps{
 export const NewTransactionModal = ({isOpen,onRequestClose}:NewTransactionModalProps) => {
   const [type, setType] = useState('income')
   const [item, setItem] = useState('')
-  const [amount, setAmount] = useState<Number>()
+  const [amount, setAmount] = useState('')
   const [category, setCategory] = useState('')
+  const [errorDisplay, setErrorDisplay] = useState('none')
 
   const handleCreateNewTransaction = (e:FormEvent) => {
     e.preventDefault()
@@ -25,7 +27,16 @@ export const NewTransactionModal = ({isOpen,onRequestClose}:NewTransactionModalP
       category: category,
     }
 
-    console.log(data)
+    if(type && item && amount && category){
+      setErrorDisplay('none')
+      api.post('/transactions', data)
+      setItem('')
+      setAmount('')
+      setCategory('')
+      onRequestClose()
+    }else{
+      setErrorDisplay('block')
+    }
   }
 
 
@@ -54,7 +65,8 @@ export const NewTransactionModal = ({isOpen,onRequestClose}:NewTransactionModalP
         <input 
           placeholder='Valor' 
           type="number"
-          onChange={(e) => setAmount(Number(e.target.value))}
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
         />
   
         <ButtonContainer>
@@ -85,6 +97,7 @@ export const NewTransactionModal = ({isOpen,onRequestClose}:NewTransactionModalP
           onChange={(e) => setCategory(e.target.value)} 
         />
 
+        <ErrorMessage style={{display:`${errorDisplay}`}}>Todos os campos devem estar preenchidos</ErrorMessage>
         <button type="submit">
           Cadastrar
         </button>
