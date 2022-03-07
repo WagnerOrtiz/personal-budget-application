@@ -8,7 +8,8 @@ interface SummaryCardProps {
   amount: string,
 }
 
-export const SummaryCard = ({title, amount}:SummaryCardProps) => (
+export const SummaryCard = ({title, amount}:SummaryCardProps) => {
+  return(
   <Container>
     <Header>
       <Title>{title}</Title>
@@ -27,4 +28,4 @@ export const SummaryCard = ({title, amount}:SummaryCardProps) => (
       <Value>{amount}</Value>
     </Content>
   </Container>
-)
+)}

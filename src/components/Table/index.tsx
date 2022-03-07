@@ -1,25 +1,11 @@
 import { Container, TableWrapper } from './style'
 import { TransactionItem } from '../TransactionItem'
 import { TableHeader } from '../TableHeader'
-import { useEffect, useState } from 'react'
-import {api} from '../../services/api'
-
-interface transactionProps{
-  id: number,
-  item: string,
-  amount: number,
-  category: string,
-  type: string,
-  date:string,
-}
+import { useContext } from 'react'
+import { TransactionsContext } from '../../TransactionContext'
 
 export const Table = () => {
-  const [transaction , setTransaction] = useState<transactionProps[]>([])
-
-  useEffect(() => {
-    api.get('/transactions')
-    .then(response => setTransaction(response.data.transactions ))
-  }, [])
+  const transaction = useContext(TransactionsContext)
 
   return(
   <Container>

@@ -4,6 +4,7 @@ import { Dashboard } from './components/Dashboard'
 import { NewTransactionModal } from '../src/components/NewTansactionModal'
 import { Header } from './components/Header'
 import { GlobalStyle } from './styles/global'
+import { TransactionsProvider } from './TransactionContext'
 
 Modal.setAppElement('#root')
 
@@ -18,7 +19,7 @@ export function App() {
     setIsNewTransactionModalOpen(false)
   }
   return (
-    <>
+    <TransactionsProvider>
       <GlobalStyle />
       <Header 
         title="Your Personal Budget" 
@@ -30,7 +31,7 @@ export function App() {
         isOpen={isNewTransactionModalOpen}
         onRequestClose={closeNewTransactionModal}
       />
-    </>
+    </TransactionsProvider>
   );
 }
 
