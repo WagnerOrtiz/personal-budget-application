@@ -7,7 +7,7 @@ import {api} from '../../services/api'
 interface transactionProps{
   id: number,
   item: string,
-  amount: string,
+  amount: number,
   category: string,
   type: string,
   date:string,
@@ -36,9 +36,14 @@ export const Table = () => {
         {transaction.map(transaction => (
           <TransactionItem key={transaction.id}
             item={transaction.item}
-            amount={transaction.amount}
+            amount={new Intl.NumberFormat('pt-BR', {
+              style: 'currency',
+              currency: 'BRL'
+            }).format(transaction.amount)}
             category={transaction.category}
-            date="10/01/2022"
+            date={new Intl.DateTimeFormat('pt-BR').format(
+              new Date(transaction.date)
+            )}
             type={transaction.type}
           />
         )
