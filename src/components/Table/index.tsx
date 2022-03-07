@@ -1,13 +1,24 @@
 import { Container, TableWrapper } from './style'
 import { TransactionItem } from '../TransactionItem'
 import { TableHeader } from '../TableHeader'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import {api} from '../../services/api'
 
+interface transactionProps{
+  id: number,
+  item: string,
+  amount: string,
+  category: string,
+  type: string,
+  date:string,
+}
+
 export const Table = () => {
+  const [transaction , setTransaction] = useState<transactionProps[]>([])
+
   useEffect(() => {
     api.get('/transactions')
-    .then(response => console.log(response.data))
+    .then(response => setTransaction(response.data.transactions ))
   }, [])
 
   return(
@@ -22,34 +33,16 @@ export const Table = () => {
         />
       </thead>
       <tbody>
-        <TransactionItem 
-          item="Desenvolvimento de website"
-          amount="R$12.000,00"
-          category="Venda"
-          date="10/01/2022"
-          type="income"
-        />
-        <TransactionItem 
-          item="Hamburguer"
-          amount="-R$10,00"
-          category="Compra"
-          date="10/01/2022"
-          type="spending"
-        />
-        <TransactionItem 
-          item="Aluguel"
-          amount="-R$1.200,00"
-          category="Aluguel"
-          date="10/01/2022"
-          type="spending"
-        />
-        <TransactionItem 
-          item="Compra carro"
-          amount="R$25.000,00"
-          category="Venda"
-          date="10/01/2022"
-          type="income"
-        />
+        {transaction.map(transaction => (
+          <TransactionItem key={transaction.id}
+            item={transaction.item}
+            amount={transaction.amount}
+            category={transaction.category}
+            date="10/01/2022"
+            type={transaction.type}
+          />
+        )
+        )}
       </tbody>
     </TableWrapper>
   </Container>
