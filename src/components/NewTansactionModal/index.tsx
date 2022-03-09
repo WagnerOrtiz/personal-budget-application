@@ -1,9 +1,9 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useContext, useState } from 'react'
 import Modal from 'react-modal'
 import income from '../../assets/entradas.svg'
 import close from '../../assets/fechar.svg'
 import spendings from '../../assets/saidas.svg'
-import { api } from '../../services/api'
+import { TransactionsContext } from '../../TransactionContext'
 import { ButtonContainer, Container, Icon, RadioButton, ErrorMessage } from './style'
 
 interface NewTransactionModalProps{
@@ -12,24 +12,26 @@ interface NewTransactionModalProps{
 }
 
 export const NewTransactionModal = ({isOpen,onRequestClose}:NewTransactionModalProps) => {
+  const { createNewTransaction} = useContext(TransactionsContext)
   const [type, setType] = useState('income')
   const [item, setItem] = useState('')
   const [amount, setAmount] = useState('')
   const [category, setCategory] = useState('')
   const [errorDisplay, setErrorDisplay] = useState('none')
 
-  const handleCreateNewTransaction = (e:FormEvent) => {
+  const handleCreateNewTransaction = async (e:FormEvent) => {
     e.preventDefault()
-    const data = {
+
+    const newTransaction = {
       item: item,
       type: type,
-      value: amount,
+      amount: amount,
       category: category,
     }
 
     if(type && item && amount && category){
       setErrorDisplay('none')
-      api.post('/transactions', data)
+      await createNewTransaction(newTransaction)
       setItem('')
       setAmount('')
       setCategory('')

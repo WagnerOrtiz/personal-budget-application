@@ -5,7 +5,7 @@ import { useContext } from 'react'
 import { TransactionsContext } from '../../TransactionContext'
 
 export const Table = () => {
-  const transaction = useContext(TransactionsContext)
+  const {transactions} = useContext(TransactionsContext)
 
   return(
   <Container>
@@ -19,18 +19,18 @@ export const Table = () => {
         />
       </thead>
       <tbody>
-        {transaction.map(transaction => (
-          <TransactionItem key={transaction.id}
-            item={transaction.item}
+        {transactions.map(transactions => (
+          <TransactionItem key={transactions.id}
+            item={transactions.item}
             amount={new Intl.NumberFormat('pt-BR', {
               style: 'currency',
               currency: 'BRL'
-            }).format(transaction.amount)}
-            category={transaction.category}
+            }).format(Number(transactions.amount))}
+            category={transactions.category}
             date={new Intl.DateTimeFormat('pt-BR').format(
-              new Date(transaction.date)
+              new Date()
             )}
-            type={transaction.type}
+            type={transactions.type}
           />
         )
         )}
