@@ -12,7 +12,13 @@ interface TransactionItemProps{
 export const TransactionItem = ({item, amount, category, date, type}:TransactionItemProps) => (
   <Container>
     <Item>{item}</Item>
-    <Item className={type}>{amount}</Item>
+    {
+      type==='income' ? ( 
+        <Item className={type}>{amount}</Item>
+      ) : (
+      <Item className={type}>-{amount}</Item>
+      )
+    }
     <Item>{category}</Item>
     <Item>{date}</Item>
   </Container>
