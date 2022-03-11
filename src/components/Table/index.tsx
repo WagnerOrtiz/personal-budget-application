@@ -28,7 +28,7 @@ export const Table = () => {
             }).format(Number(transactions.amount))}
             category={transactions.category}
             date={new Intl.DateTimeFormat('pt-BR').format(
-              new Date()
+             new Date(transactions.date)
             )}
             type={transactions.type}
           />

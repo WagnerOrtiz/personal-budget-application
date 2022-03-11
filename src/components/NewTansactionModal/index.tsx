@@ -12,7 +12,7 @@ interface NewTransactionModalProps{
 }
 
 export const NewTransactionModal = ({isOpen,onRequestClose}:NewTransactionModalProps) => {
-  const { createNewTransaction} = useContext(TransactionsContext)
+  const { transactions, createNewTransaction } = useContext(TransactionsContext)
   const [type, setType] = useState('income')
   const [item, setItem] = useState('')
   const [amount, setAmount] = useState('')
@@ -32,6 +32,7 @@ export const NewTransactionModal = ({isOpen,onRequestClose}:NewTransactionModalP
     if(type && item && amount && category){
       setErrorDisplay('none')
       await createNewTransaction(newTransaction)
+      console.log(transactions)
       setItem('')
       setAmount('')
       setCategory('')

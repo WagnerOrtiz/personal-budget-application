@@ -1,7 +1,6 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { api } from "./services/api";
 
-export const TransactionsContext = createContext({} as TransactionsContexProps)
 interface TransactionsContexProps{
   transactions: Transaction[],
   createNewTransaction: (newTransaction:NewTransactionProps) => Promise<void>,
@@ -21,10 +20,19 @@ interface TransactionsProviderProps{
   children: ReactNode,
 }
 
+export const TransactionsContext = createContext({} as TransactionsContexProps)
+
 export const TransactionsProvider = ({children}:TransactionsProviderProps) => {
   const [transactions , setTransactions] = useState<Transaction[]>([])
   const createNewTransaction = async(newTransaction:NewTransactionProps) => {
-    await api.post('/transactions', newTransaction)
+    const response = await api.post('/transactions', {
+      ...newTransaction,
+      date: new Date()
+    })
+    const transactionResponded = response.data.transaction
+
+    setTransactions([...transactions, transactionResponded])
+    console.log(transactions)
 
   }
 
