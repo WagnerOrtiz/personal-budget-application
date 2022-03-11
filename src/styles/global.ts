@@ -86,4 +86,8 @@ export const GlobalStyle = createGlobalStyle`
     border: none;
     background-color: transparent;
   }
+
+  .spendingSummary{
+    color: #E62E4D;
+  }
 `
